@@ -337,7 +337,7 @@ proc lineSegDistanceSqr*(line: Line, p: Point2d): float =
 proc lineSegDistance*(line: Line, p: Point2d): float =
   return sqrt(lineSegDistanceSqr(line, p))
 
-template alias*(a,b: expr): expr =
+template alias*(a, b: untyped): untyped =
   template a: expr = b
 
 proc `%%/`*[T](x,m: T): T =

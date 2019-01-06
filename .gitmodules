@@ -1,0 +1,12 @@
+[submodule "sdl2"]
+	path = sdl2
+	url = https://github.com/Vladar4/sdl2_nim
+[submodule "stb_image"]
+	path = stb_image
+	url = https://github.com/define-private-public/stb_image-Nim
+[submodule "sndfile"]
+	path = sndfile
+	url = https://github.com/julienaubert/nim-sndfile
+[submodule "basic2d"]
+	path = basic2d
+	url = https://github.com/nim-lang/basic2d

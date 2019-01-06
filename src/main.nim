@@ -739,7 +739,7 @@ proc isTouchingType(self: Player, ox,oy: int, check: proc(t: uint8): bool): bool
   isTouchingType(x+hitbox.x+ox, y+hitbox.y+oy, hitbox.w, hitbox.h, check)
 
 proc moveX(self: Player, amount: float, start: float) =
-  var step = amount.int.sgn
+  var step = nico.sgn(amount.int)
   for i in start..<abs(amount.int):
     if noclip or not isSolid(step, 0):
       x += step
@@ -752,7 +752,7 @@ proc moveX(self: Player, amount: float, start: float) =
       break
 
 proc moveY(self: Player, amount: float, start: float) =
-  var step = amount.int.sgn
+  var step = nico.sgn(amount.int)
   for i in start..<abs(amount.int):
     if not isSolid(0, step) and not (not fallThrough and step > 0 and (y mod 16 == 0) and isTouchingType(x+hitbox.x, y+hitbox.y+hitbox.h+step, hitbox.w, 1, isPlatform)):
       y += step

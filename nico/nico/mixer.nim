@@ -330,7 +330,7 @@ proc process(self: var Channel): float32 =
       o = ((((phase mod TAU) - PI) / PI) * 0.5).float32
     of synNoise:
       if nextClick <= 0:
-        let lsb: uint = (lfsr and 1)
+        let lsb: uint = uint(lfsr and 1)
         lfsr = lfsr shr 1
         if lsb == 1:
           lfsr = lfsr xor 0xb400

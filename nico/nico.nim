@@ -1178,14 +1178,14 @@ proc shutdown*() =
 proc resize(w,h: int) =
   backend.resize(w,h)
   clip()
-  if swCanvas.data != nil:
+  if swCanvas.data.len > 0:
     cls()
     present()
 
 proc resize() =
   backend.resize()
   clip()
-  if swCanvas.data != nil:
+  if swCanvas.data.len > 0:
     cls()
     present()
 
@@ -1285,7 +1285,7 @@ proc sspr*(sx,sy, sw,sh, dx,dy: Pint, dw,dh: Pint = -1, hflip, vflip: bool = fal
   blitStretch(spriteSheet[], src, dst, hflip, vflip)
 
 proc mapDraw*(tx,ty, tw,th, dx,dy: Pint) =
-  if currentTilemap.data == nil:
+  if currentTilemap.data.len == 0:
     return
   # draw map tiles to the screen
   var xi = dx

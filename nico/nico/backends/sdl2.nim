@@ -920,7 +920,7 @@ proc saveMap*(filename: string) =
   for y in 0..<currentTilemap.h:
     for x in 0..<currentTilemap.w:
       let t = currentTilemap.data[y * currentTilemap.w + x]
-      fs.write(t.uint8)
+      fs.write(t.uint64)
   fs.close()
   debug "saved map: ", filename
 
